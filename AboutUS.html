@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — GreenNest</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f8f2;
+      color: #2b3a2b;
+      line-height: 1.6;
+    }
+
+    /* ================= HERO ================= */
+    .about-hero {
+      background: linear-gradient(rgba(20, 49, 28, 0.75), rgba(20, 49, 28, 0.75)),
+        url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 110px 24px;
+    }
+
+    .about-hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .about-hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 16px;
+      color: #dfe8db;
+    }
+
+    /* ================= CONTAINER ================= */
+    .about-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+
+    /* ================= WHO WE ARE ================= */
+    .about-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+    }
+
+    .about-text h2 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #14311c;
+      margin-bottom: 18px;
+    }
+
+    .about-text h2 span {
+      color: #6fcf4a;
+    }
+
+    .about-text p {
+      color: #4a5a4a;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .about-image {
+      flex: 1 1 380px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 14px 40px rgba(20, 49, 28, 0.18);
+    }
+
+    /* ================= STATS ================= */
+    .about-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 70px;
+      text-align: center;
+    }
+
+    .stat-box {
+      flex: 1 1 180px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px 18px;
+      box-shadow: 0 8px 26px rgba(20, 49, 28, 0.08);
+    }
+
+    .stat-box i {
+      font-size: 26px;
+      color: #6fcf4a;
+      margin-bottom: 10px;
+    }
+
+    .stat-box h3 {
+      font-size: 26px;
+      color: #14311c;
+      font-weight: 800;
+    }
+
+    .stat-box p {
+      font-size: 13.5px;
+      color: #6a7a6a;
+      margin-top: 4px;
+    }
+
+    /* ================= MISSION ================= */
+    .about-mission {
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .about-mission h2 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #14311c;
+      margin-bottom: 18px;
+    }
+
+    .about-mission h2 span {
+      color: #6fcf4a;
+    }
+
+    .about-mission p {
+      max-width: 760px;
+      margin: 0 auto 26px;
+      color: #4a5a4a;
+      font-size: 15px;
+    }
+
+    /* ================= VALUES ================= */
+    .about-values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 34px;
+      justify-content: center;
+    }
+
+    .value-card {
+      flex: 1 1 260px;
+      max-width: 320px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: 0 8px 26px rgba(20, 49, 28, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 34px rgba(20, 49, 28, 0.14);
+    }
+
+    .value-card i {
+      font-size: 28px;
+      color: #6fcf4a;
+      margin-bottom: 14px;
+    }
+
+    .value-card h3 {
+      font-size: 17px;
+      color: #14311c;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      font-size: 14px;
+      color: #5a6a5a;
+    }
+
+    /* ================= CTA ================= */
+    .about-cta {
+      margin-top: 80px;
+      background: #14311c;
+      border-radius: 18px;
+      padding: 55px 30px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .about-cta h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .about-cta p {
+      color: #b9c7b3;
+      font-size: 15px;
+      margin-bottom: 26px;
+    }
+
+    .about-cta a {
+      display: inline-block;
+      background: #6fcf4a;
+      color: #14311c;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .about-cta a:hover {
+      background: #8be05f;
+      transform: translateY(-3px);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 30px;
+      }
+      .about-hero {
+        padding: 80px 20px;
+      }
+      .about-text h2,
+      .about-mission h2 {
+        font-size: 24px;
+      }
+      .about-cta h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HERO ================= -->
+  <section class="about-hero">
+    <h1>About GreenNest</h1>
+    <p>
+      Bringing nature closer to your home — one plant, one pot, one green
+      space at a time.
+    </p>
+  </section>
+
+  <div class="about-container">
+
+    <!-- ================= WHO WE ARE ================= -->
+    <section class="about-row">
+      <div class="about-text">
+        <h2>Who <span>We Are</span></h2>
+        <p>
+          GreenNest is a plant-loving community and store based in Karachi,
+          dedicated to helping people create beautiful green spaces in their
+          homes and gardens. Whether you're a first-time plant parent or a
+          seasoned gardener, we're here to make your journey simple and joyful.
+        </p>
+        <p>
+          From indoor plants and outdoor greens to gardening tools and expert
+          care tips, we provide everything you need to bring a little nature
+          into your everyday life.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&w=800&q=80"
+          alt="Green plants in a garden"
+        />
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="about-stats">
+      <div class="stat-box">
+        <i class="fa-solid fa-seedling"></i>
+        <h3>500+</h3>
+        <p>Happy Plant Parents</p>
+      </div>
+      <div class="stat-box">
+        <i class="fa-solid fa-leaf"></i>
+        <h3>120+</h3>
+        <p>Plant Varieties</p>
+      </div>
+      <div class="stat-box">
+        <i class="fa-solid fa-trowel-bricks"></i>
+        <h3>80+</h3>
+        <p>Gardening Tools</p>
+      </div>
+      <div class="stat-box">
+        <i class="fa-solid fa-award"></i>
+        <h3>5+</h3>
+        <p>Years of Experience</p>
+      </div>
+    </section>
+
+    <!-- ================= MISSION ================= -->
+    <section class="about-mission">
+      <h2>Our <span>Mission</span></h2>
+      <p>
+        Our mission is to make gardening and plant care accessible to everyone.
+        We believe every home deserves a touch of nature, and every person can
+        grow something beautiful — no matter how small the space or how busy
+        the schedule.
+      </p>
+
+      <div class="about-values">
+        <div class="value-card">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Passion for Plants</h3>
+          <p>
+            We genuinely love what we do. Every plant we offer is chosen with
+            care and love.
+          </p>
+        </div>
+        <div class="value-card">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <h3>Customer First</h3>
+          <p>
+            Your satisfaction matters most. We're always here to help you grow
+            with confidence.
+          </p>
+        </div>
+        <div class="value-card">
+          <i class="fa-solid fa-globe"></i>
+          <h3>Green Living</h3>
+          <p>
+            We promote sustainable gardening practices for a healthier planet
+            and greener future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="about-cta">
+      <h2>Ready to Grow With Us?</h2>
+      <p>Explore our collection and find the perfect plants for your space.</p>
+      <a href="index.html">Visit Our Store</a>
+    </section>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fertilizers - GreenNest</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green-950: #102b13;
+        --green-900: #153b18;
+        --green-800: #17621d;
+        --green-700: #1d7b22;
+        --text: #142b17;
+        --content-width: 1450px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #f7f7ef;
+        color: var(--text);
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      .site-header {
+        position: relative;
+        z-index: 100;
+        width: min(calc(100% - 12.4%), var(--content-width));
+        min-height: 112px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+      .brand {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 11px;
+        color: var(--green-950);
+      }
+      .brand-mark {
+        position: relative;
+        width: 68px;
+        height: 65px;
+        display: grid;
+        place-items: center;
+        color: var(--green-800);
+      }
+      .brand-mark .fa-house-chimney {
+        position: absolute;
+        top: 1px;
+        font-size: 49px;
+        transform: scaleX(1.13);
+      }
+      .brand-mark .fa-seedling {
+        position: absolute;
+        bottom: 1px;
+        font-size: 33px;
+        color: #4b9c24;
+      }
+      .brand-copy {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.08;
+      }
+      .brand-copy strong {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(23px, 2vw, 30px);
+        font-weight: 800;
+        letter-spacing: -1.2px;
+      }
+      .brand-copy strong span {
+        color: var(--green-700);
+      }
+      .brand-copy small {
+        margin-top: 5px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(5px, 1.1vw, 18px);
+      }
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 0 12px;
+        border-radius: 30px;
+        color: #17251a;
+        font-size: 15px;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+      }
+      .nav-link > .fa-chevron-down {
+        font-size: 11px;
+        opacity: 0.85;
+        transition: transform 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--green-800);
+      }
+      .nav-link.active {
+        padding-inline: 18px;
+        color: white;
+        background: linear-gradient(135deg, #218326, #17631c);
+      }
+      .nav-item.dropdown {
+        position: relative;
+      }
+      .nav-item.dropdown:hover .nav-link .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(15px);
+        background: #fff;
+        min-width: 220px;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(75, 156, 36, 0.1);
+        z-index: 200;
+      }
+      .nav-item.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 12px 20px;
+        color: #17251a;
+        font-size: 14.5px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .dropdown-menu li a:hover {
+        background: #eef6ee;
+        color: var(--green-800);
+        padding-left: 25px;
+      }
+      .menu-checkbox,
+      .menu-toggle,
+      .mobile-nav-header,
+      .mobile-header-actions {
+        display: none;
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .icon-button {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 40px;
+        border: 0;
+        background: transparent;
+        font-size: 25px;
+        color: #0c2110;
+        cursor: pointer;
+      }
+      .action-divider {
+        width: 1px;
+        height: 34px;
+        background: rgba(18, 38, 19, 0.65);
+      }
+      .page-hero {
+        position: relative;
+        background: url("assets/bg.png") no-repeat center center;
+        background-size: cover;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+        margin-bottom: -50px;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 246, 0.6);
+        z-index: 1;
+      }
+      .hero-text {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
+      .hero-text h1 {
+        font-family: "Manrope", sans-serif;
+        font-size: 3rem;
+        color: var(--green-950);
+        margin-bottom: 15px;
+        line-height: 1.1;
+      }
+      .hero-text p {
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 1.6;
+      }
+      .content-wrapper {
+        position: relative;
+        z-index: 10;
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto 60px;
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .card-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+      }
+      .card-content {
+        padding: 40px;
+      }
+      .card-content h2 {
+        font-size: 2rem;
+        color: var(--green-800);
+        margin-bottom: 20px;
+      }
+      .card-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 20px;
+      }
+      .card-content .tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .tag {
+        background: #eef6ee;
+        color: #218326;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+      @media (max-width: 1020px) {
+        .menu-toggle {
+          display: grid;
+          place-items: center;
+          width: 43px;
+          height: 43px;
+          border-radius: 50%;
+          border: 1px solid rgba(23, 77, 25, 0.2);
+          background: rgba(255, 255, 255, 0.82);
+          font-size: 20px;
+          cursor: pointer;
+        }
+        .header-actions {
+          display: none;
+        }
+        .main-nav {
+          position: fixed;
+          z-index: 9999;
+          top: 0;
+          right: 0;
+          width: min(380px, 85vw);
+          height: 100vh;
+          height: 100dvh;
+          flex-direction: column;
+          align-items: stretch;
+          justify-content: flex-start;
+          gap: 10px;
+          padding: 25px 22px;
+          overflow-y: auto;
+          background: rgba(250, 252, 244, 0.99);
+          box-shadow: -18px 0 45px rgba(17, 48, 18, 0.18);
+          backdrop-filter: blur(18px);
+          transform: translateX(110%);
+          visibility: hidden;
+          pointer-events: none;
+          transition:
+            transform 0.35s ease,
+            visibility 0.35s ease;
+        }
+        .menu-checkbox:checked ~ .main-nav {
+          transform: translateX(0);
+          visibility: visible;
+          pointer-events: auto;
+        }
+        .mobile-nav-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(29, 92, 30, 0.18);
+          margin-bottom: 20px;
+        }
+        .mobile-nav-header strong {
+          font-family: "Manrope", sans-serif;
+          font-size: 25px;
+          font-weight: 800;
+          color: var(--green-950);
+        }
+        .mobile-nav-header strong span {
+          color: var(--green-700);
+        }
+        .close-menu {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: var(--green-800);
+          color: white;
+          font-size: 21px;
+          cursor: pointer;
+        }
+        .nav-link,
+        .nav-link.active {
+          display: flex;
+          width: 100%;
+          min-height: 52px;
+          justify-content: space-between;
+          padding: 0 17px;
+          border-radius: 12px;
+          font-size: 15px;
+        }
+        .nav-link.active {
+          justify-content: flex-start;
+          color: white;
+        }
+        .nav-item.dropdown {
+          width: 100%;
+        }
+        .dropdown-menu {
+          position: static;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          box-shadow: none;
+          border: none;
+          background: #f9fdf9;
+          display: none;
+          width: 100%;
+          border-radius: 8px;
+          margin-top: 5px;
+          padding: 5px 0;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+          display: block;
+        }
+        .dropdown-menu li a {
+          padding: 12px 20px 12px 35px;
+        }
+        .mobile-header-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(29, 92, 30, 0.18);
+        }
+        .mobile-header-actions .icon-button {
+          display: flex;
+          width: 100%;
+          height: 50px;
+          justify-content: flex-start;
+          gap: 15px;
+          padding: 0 17px;
+          border: 1px solid rgba(29, 92, 30, 0.15);
+          border-radius: 12px;
+          background: white;
+          font-size: 18px;
+        }
+        .mobile-header-actions .icon-button span {
+          font-size: 15px;
+          font-weight: 600;
+        }
+        .site-header {
+          width: 92%;
+          min-height: 94px;
+        }
+      }
+      @media (max-width: 600px) {
+        .site-header {
+          width: calc(100% - 30px);
+          min-height: 78px;
+        }
+        .brand-mark {
+          width: 43px;
+          height: 48px;
+        }
+        .brand-mark .fa-house-chimney {
+          font-size: 37px;
+        }
+        .brand-mark .fa-seedling {
+          font-size: 25px;
+        }
+        .brand-copy strong {
+          font-size: 21px;
+        }
+        .brand-copy small {
+          font-size: 9px;
+        }
+        .menu-toggle {
+          width: 38px;
+          height: 38px;
+          font-size: 17px;
+        }
+        .hero-text h1 {
+          font-size: 2rem;
+        }
+        .hero-text p {
+          font-size: 1rem;
+        }
+        .card-image {
+          height: 250px;
+        }
+        .card-content {
+          padding: 25px;
+        }
+        .card-content h2 {
+          font-size: 1.6rem;
+        }
+        .card-content p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        ><span class="brand-mark"
+          ><i class="fa-solid fa-house-chimney"></i
+          ><i class="fa-solid fa-seedling"></i></span
+        ><span class="brand-copy"
+          ><strong>Green<span>Nest</span></strong
+          ><small>Grow Happy. Live Green.</small></span
+        ></a
+      >
+      <input class="menu-checkbox" type="checkbox" id="menu-toggle" />
+      <label class="menu-toggle" for="menu-toggle"
+        ><i class="fa-solid fa-bars"></i
+      ></label>
+      <nav class="main-nav">
+        <div class="mobile-nav-header">
+          <strong>Green<span>Nest</span></strong
+          ><label for="menu-toggle" class="close-menu"
+            ><i class="fa-solid fa-xmark"></i
+          ></label>
+        </div>
+        <a class="nav-link" href="../index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#"
+            >Gardening Tips <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="BeginerGuide.html">Beginner's Guide</a></li>
+            <li><a href="WateringSchedule.html">Watering Schedule</a></li>
+            <li><a href="SoilPreparation.html">Soil Preparation</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#"
+            >Tools &amp; Equipment <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="HandTrowels.html">Hand Trowels</a></li>
+            <li><a href="PruningShears.html">Pruning Shears</a></li>
+            <li><a href="WateringCans.html">Watering Cans</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link active" href="#"
+            >Plant Care <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="IndoorPlants.html">Indoor Plants</a></li>
+            <li><a href="Fertilizers.html">Fertilizers</a></li>
+            <li><a href="PestControl.html">Pest Control</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#"
+            >Accessories <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="PotsPlanters.html">Pots & Planters</a></li>
+            <li><a href="Gloves.html">Gloves</a></li>
+            <li><a href="GardenDecor.html">Garden Decor</a></li>
+          </ul>
+        </div>
+        <div class="mobile-header-actions">
+          <button class="icon-button">
+            <i class="fa-solid fa-magnifying-glass"></i
+            ><span>Search</span></button
+          ><button class="icon-button">
+            <i class="fa-regular fa-user"></i><span>My Profile</span>
+          </button>
+        </div>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button">
+          <i class="fa-solid fa-magnifying-glass"></i></button
+        ><span class="action-divider"></span
+        ><button class="icon-button"><i class="fa-regular fa-user"></i></button>
+      </div>
+    </header>
+    <section class="page-hero">
+      <div class="hero-text">
+        <h1>Fertilizers</h1>
+        <p>Give your plants the nutrients they need to flourish.</p>
+      </div>
+    </section>
+    <div class="content-wrapper">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHe5Fq8Mz6xS6AEp4EI-C7eflMpHFVpcTJZbkdGh90YA&s=10"
+        alt="Fertilizers"
+        class="card-image"
+      />
+      <div class="card-content">
+        <h2>Types of Fertilizers</h2>
+        <p>
+          Fertilizers provide essential nutrients to plants. Organic compost,
+          NPK, and liquid fertilizers are common. Every plant has different
+          needs.
+        </p>
+        <p>
+          Avoid over-fertilizing, because it can burn the roots. Feed regularly
+          during the growing season and reduce feeding in winter.
+        </p>
+        <div class="tags">
+          <span class="tag">Fertilizer</span><span class="tag">Nutrients</span
+          ><span class="tag">Growth</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

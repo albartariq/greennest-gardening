@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8ed" />
+    <meta
+      name="description"
+      content="GreenNest — your complete guide to gardening at home."
+    />
+    <title>GreenNest | Gardening at Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="hero" id="home">
+      <div class="hero-bg" id="heroBg" aria-hidden="true">
+        <div
+          class="hero-bg-layer active"
+          style="background-image: url('assets/bg.png')"
+        ></div>
+        <div
+          class="hero-bg-layer"
+          style="background-image: url('assets/hero2.png')"
+        ></div>
+        <div
+          class="hero-bg-layer"
+          style="background-image: url('assets/hero3.png')"
+        ></div>
+      </div>
+
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="hero-slider-nav" aria-label="Hero background slider">
+        <button class="hero-arrow" id="heroPrev" aria-label="Previous background">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="hero-arrow" id="heroNext" aria-label="Next background">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="GreenNest home">
+          <span class="brand-mark">
+            <i class="fa-solid fa-house-chimney"></i>
+            <i class="fa-solid fa-seedling"></i>
+          </span>
+          <span class="brand-copy">
+            <strong>Green<span>Nest</span></strong>
+            <small>Grow Happy. Live Green.</small>
+          </span>
+        </a>
+
+        <input class="menu-checkbox" type="checkbox" id="menu-toggle" />
+        <label
+          class="menu-toggle"
+          for="menu-toggle"
+          aria-label="Open navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </label>
+
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+          <div class="mobile-nav-header">
+            <strong>Green<span>Nest</span></strong>
+            <label
+              for="menu-toggle"
+              class="close-menu"
+              aria-label="Close navigation"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </label>
+          </div>
+
+          <a class="nav-link active" href="index.html"
+            ><i class="fa-solid fa-house"></i> Home</a
+          >
+
+          <div class="nav-item dropdown">
+            <input type="checkbox" id="dd-gardening" class="dd-checkbox" />
+            <label for="dd-gardening" class="nav-link dd-label">
+              Gardening Tips <i class="fa-solid fa-chevron-down"></i>
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="./Categories/BeginerGuide.html">Beginner's Guide</a>
+              </li>
+              <li>
+                <a href="./Categories/WateringSchedule.html"
+                  >Watering Schedule</a
+                >
+              </li>
+              <li>
+                <a href="./Categories/SoilPreparation.html">Soil Preparation</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-item dropdown">
+            <input type="checkbox" id="dd-tools" class="dd-checkbox" />
+            <label for="dd-tools" class="nav-link dd-label">
+              Tools &amp; Equipment <i class="fa-solid fa-chevron-down"></i>
+            </label>
+            <ul class="dropdown-menu">
+              <li><a href="./Categories/HandTrowels.html">Hand Trowels</a></li>
+              <li>
+                <a href="./Categories/PruningShears.html">Pruning Shears</a>
+              </li>
+              <li>
+                <a href="./Categories/WateringCans.html">Watering Cans</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-item dropdown">
+            <input type="checkbox" id="dd-plant" class="dd-checkbox" />
+            <label for="dd-plant" class="nav-link dd-label">
+              Plant Care <i class="fa-solid fa-chevron-down"></i>
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="./Categories/IndoorPlants.html">Indoor Plants</a>
+              </li>
+              <li><a href="./Categories/Fertilizers.html">Fertilizers</a></li>
+              <li><a href="./Categories/PestControl.html">Pest Control</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-item dropdown">
+            <input type="checkbox" id="dd-accessories" class="dd-checkbox" />
+            <label for="dd-accessories" class="nav-link dd-label">
+              Accessories <i class="fa-solid fa-chevron-down"></i>
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="./Categories/PotsPlanters.html">Pots &amp; Planters</a>
+              </li>
+              <li><a href="./Categories/Gloves.html">Gloves</a></li>
+              <li><a href="./Categories/GardenDecor.html">Garden Decor</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-item dropdown">
+            <input type="checkbox" id="dd-books" class="dd-checkbox" />
+            <label for="dd-books" class="nav-link dd-label">
+              Related Books <i class="fa-solid fa-chevron-down"></i>
+            </label>
+            <ul class="dropdown-menu">
+              <li><a href="https://books.google.com.pk/books/about/Gaia_s_Garden.html?id=gxW0MGXha6cC&printsec=frontcover&source=kp_read_button&hl=en&newbks=1&newbks_redir=0&gboemv=1&redir_esc=y#v=onepage&q&f=false" target="_blank">Gaias_Garden</a></li>
+              <li><a href="https://books.google.com.pk/books/about/Square_Foot_Gardening.html?id=9_spjPVMnCUC&printsec=frontcover&source=kp_read_button&hl=en&newbks=1&newbks_redir=0&gboemv=1&redir_esc=y#v=onepage&q&f=false" target="_blank">Square_Foot_Gardening</a></li>
+              <li><a href="https://books.google.com.pk/books/about/The_Garden_Primer.html?id=MKMxT5rGyBgC&printsec=frontcover&source=kp_read_button&hl=en&newbks=1&newbks_redir=0&gboemv=1&redir_esc=y#v=onepage&q&f=false" target="_blank">The_Garden_Primer</a></li>
+            </ul>
+          </div>
+
+          <div class="mobile-header-actions">
+            <button class="icon-button" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+            </button>
+            <button class="icon-button user-button" aria-label="User account">
+              <i class="fa-regular fa-user"></i><span>My Profile</span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-button" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <span class="action-divider"></span>
+          <button class="icon-button user-button" aria-label="User account">
+            <i class="fa-regular fa-user"></i>
+          </button>
+        </div>
+      </header>
+
+      <section class="hero-content" aria-labelledby="hero-title">
+        <div class="eyebrow">
+          <i class="fa-solid fa-leaf"></i
+          ><span>Small Space. Big Green Impact.</span>
+        </div>
+        <h1 id="hero-title">
+          Your Complete Guide to <span>Gardening at Home</span>
+        </h1>
+        <p class="hero-description">
+          Discover easy tips, essential tools and expert advice<br
+            class="desktop-break"
+          />
+          for a greener, healthier and happier life.
+        </p>
+
+        <div class="hero-cta">
+          <a class="primary-button" href="./Blogs/StartGuidening.html">
+            Start Gardening <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+   <details class="video-modal-wrapper" id="videoDetails">
+  <summary class="video-link">
+    <span class="play-button"><i class="fa-solid fa-play"></i></span>
+    <span>Watch Video</span>
+  </summary>
+
+  <div class="video-modal-overlay">
+    <!-- Close button (X) -->
+    <label for="close-video-check" class="video-close-btn" aria-label="Close video">
+      <i class="fa-solid fa-xmark"></i>
+    </label>
+
+    <!-- Hidden checkbox to close -->
+    <input
+      type="checkbox"
+      id="close-video-check"
+      class="close-checkbox"
+    />
+
+    <video class="local-video" controls autoplay>
+      <source src="/Video/gardeningVideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</details>
+        </div>
+      </section>
+
+      <section class="feature-bar" aria-label="Explore GreenNest">
+        <a class="feature-item" href="./Blogs/ExpertTips.html">
+          <span class="feature-icon leaf-icon"
+            ><i class="fa-solid fa-leaf"></i
+          ></span>
+          <span><strong>Expert Tips</strong><small>Grow Better</small></span>
+        </a>
+        <a class="feature-item" href="./Blogs/EssentialTools.html">
+          <span class="feature-icon"
+            ><i class="fa-solid fa-screwdriver-wrench"></i
+          ></span>
+          <span
+            ><strong>Essential Tools</strong><small>Garden Smart</small></span
+          >
+        </a>
+        <a class="feature-item" href="./Blogs/PlantGuide.html">
+          <span class="feature-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span
+            ><strong>Plant Care Guides</strong
+            ><small>Keep It Healthy</small></span
+          >
+        </a>
+        <a class="feature-item" href="./Video/videos.html">
+          <span class="feature-icon video-feature"
+            ><i class="fa-brands fa-youtube"></i
+          ></span>
+          <span
+            ><strong>Helpful Videos</strong><small>Learn Easily</small></span
+          >
+        </a>
+      </section>
+    </main>
+
+    <section class="blog-section" id="blog">
+      <div class="blog-container">
+        <div class="blog-heading">
+          <span class="blog-eyebrow">GreenNest Journal</span>
+          <h2>Explore Our Latest Blogs</h2>
+          <p>
+            Discover gardening tips, creative ideas, and inspiration to make
+            your space greener.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <a href="Blogs/blog1.html" class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9GpC-k7fM0g8QU-fG7rO1xboPiziZXIB3X7TjjM2eMQ&s=10"
+                alt="Indoor gardening supplies"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Essential Supplies for Indoor Gardening</h3>
+              <p>
+                Discover the basic tools and supplies you need to grow healthy
+                indoor plants and create a refreshing green space at home.
+              </p>
+            </div>
+          </a>
+
+          <a href="Blogs/blog2.html" class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://cdn.apartmenttherapy.info/image/upload/v1583270464/stock/shutterstock_246478183.jpg"
+                alt="Seed starting tools"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>How to Start Seeds at Home</h3>
+              <p>
+                Learn how to choose quality seeds, prepare your soil, and give
+                young seedlings the right conditions to grow strong.
+              </p>
+            </div>
+          </a>
+
+          <a href="Blogs/blog3.html" class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=900&q=85"
+                alt="Wall-mounted planters and hanging brackets"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Wall-mounted and hanging brackets</h3>
+              <p>
+                Maximize your space and elevate your decor with stylish
+                wall-mounted planters and hanging brackets. Perfect for small
+                balconies or indoor walls to create a vertical garden
+                effortlessly.
+              </p>
+            </div>
+          </a>
+
+          <a href="Blogs/blog4.html" class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvYBSmCJ0XeMKQl7Shxd0yDR64faFLS34DxC5EeMOh6A&s=10"
+                alt="Clear view of railing bracket holding a hanging pot"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Railing brackets and pot hangers</h3>
+              <p>
+                Make the most of your balcony space with durable railing
+                brackets and pot hangers. Easily attach your favorite planters
+                to railings without drilling holes, adding instant greenery to
+                your home.
+              </p>
+            </div>
+          </a>
+
+          <a href="Blogs/blog5.html" class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=85"
+                alt="Miniature garden toys and decorative accessories"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Miniature garden toys and accessories</h3>
+              <p>
+                Bring your fairy gardens and small plant pots to life with
+                adorable miniature toys, tiny houses, and decorative
+                accessories. Add a playful and creative touch to your indoor
+                greenery.
+              </p>
+            </div>
+          </a>
+
+          <a href="Blogs/blog6.html" class="blog-card">
+            <div class="blog-image">
+              <img
+                src="data:image/jpeg;base64,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"
+                alt="Colorful decorative pebbles for plants"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Decorative pebbles</h3>
+              <p>
+                Enhance the beauty of your potted plants and indoor spaces with
+                smooth, colorful decorative pebbles. Perfect for topping soil,
+                improving drainage, and adding a stylish finishing touch.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- About Us -->
+    <div class="footer-about">
+      <a href="#" class="footer-logo">
+        <i class="fa-solid fa-leaf"></i>
+        GreenNest
+      </a>
+      <p>
+        Bring nature closer to your home. Discover beautiful plants,
+        gardening essentials, and inspiration to create your own green
+        space.
+      </p>
+
+      <!-- Links -->
+      <ul class="footer-links">
+        <li><a href="/AboutUS.html">About Us</a></li>
+        <li><a href="/OurServices.html">Our Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Karachi</span>
+      </div>
+
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:greennest@gmail.com">greennest@gmail.com</a>
+      </div>
+
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <a href="tel:+923422728702">+92 342 2728702</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 GreenNest. All Rights Reserved.</p>
+    <p>GreenNest <i class="fa-solid fa-heart"></i></p>
+  </div>
+</footer>
+    <script>
+      (function () {
+        const layers = document.querySelectorAll(".hero-bg-layer");
+        const prevBtn = document.getElementById("heroPrev");
+        const nextBtn = document.getElementById("heroNext");
+
+        let current = 0;
+        let timer = null;
+        const INTERVAL = 3500;
+
+        function showSlide(index) {
+          layers[current].classList.remove("active");
+          current = (index + layers.length) % layers.length;
+          layers[current].classList.add("active");
+        }
+
+        function nextSlide() {
+          showSlide(current + 1);
+        }
+
+        function prevSlide() {
+          showSlide(current - 1);
+        }
+
+        function startAuto() {
+          stopAuto();
+          timer = setInterval(nextSlide, INTERVAL);
+        }
+
+        function stopAuto() {
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        nextBtn.addEventListener("click", function () {
+          nextSlide();
+          startAuto();
+        });
+
+        prevBtn.addEventListener("click", function () {
+          prevSlide();
+          startAuto();
+        });
+
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) {
+            stopAuto();
+          } else {
+            startAuto();
+          }
+        });
+
+        startAuto();
+      })();
+    </script>
+  </body>
+</html>

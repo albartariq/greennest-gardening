@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decorative Pebbles: Transform Your Garden - GreenNest</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green-950: #102b13;
+        --green-900: #153b18;
+        --green-800: #17621d;
+        --green-700: #1d7b22;
+        --text: #142b17;
+        --content-width: 1450px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #f7f7ef;
+        color: var(--text);
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      .site-header {
+        position: relative;
+        z-index: 100;
+        width: min(calc(100% - 12.4%), var(--content-width));
+        min-height: 112px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+      .brand {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 11px;
+        color: var(--green-950);
+      }
+      .brand-mark {
+        position: relative;
+        width: 68px;
+        height: 65px;
+        display: grid;
+        place-items: center;
+        color: var(--green-800);
+      }
+      .brand-mark .fa-house-chimney {
+        position: absolute;
+        top: 1px;
+        font-size: 49px;
+        transform: scaleX(1.13);
+      }
+      .brand-mark .fa-seedling {
+        position: absolute;
+        bottom: 1px;
+        font-size: 33px;
+        color: #4b9c24;
+      }
+      .brand-copy {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.08;
+      }
+      .brand-copy strong {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(23px, 2vw, 30px);
+        font-weight: 800;
+        letter-spacing: -1.2px;
+      }
+      .brand-copy strong span {
+        color: var(--green-700);
+      }
+      .brand-copy small {
+        margin-top: 5px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(5px, 1.1vw, 18px);
+      }
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 0 12px;
+        border-radius: 30px;
+        color: #17251a;
+        font-size: 15px;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+      }
+      .nav-link > .fa-chevron-down {
+        font-size: 11px;
+        opacity: 0.85;
+        transition: transform 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--green-800);
+      }
+      .nav-link.active {
+        padding-inline: 18px;
+        color: white;
+        background: linear-gradient(135deg, #218326, #17631c);
+      }
+      .nav-item.dropdown {
+        position: relative;
+      }
+      .nav-item.dropdown:hover .nav-link .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(15px);
+        background: #fff;
+        min-width: 220px;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(75, 156, 36, 0.1);
+        z-index: 200;
+      }
+      .nav-item.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 12px 20px;
+        color: #17251a;
+        font-size: 14.5px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .dropdown-menu li a:hover {
+        background: #eef6ee;
+        color: var(--green-800);
+        padding-left: 25px;
+      }
+      .menu-checkbox,
+      .menu-toggle,
+      .mobile-nav-header,
+      .mobile-header-actions {
+        display: none;
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .icon-button {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 40px;
+        border: 0;
+        background: transparent;
+        font-size: 25px;
+        color: #0c2110;
+        cursor: pointer;
+      }
+      .action-divider {
+        width: 1px;
+        height: 34px;
+        background: rgba(18, 38, 19, 0.65);
+      }
+      .blog-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: #0c2110;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: #218326;
+        color: #fff;
+      }
+      .blog-page h1 {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(28px, 4vw, 42px);
+        color: var(--green-950);
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+      .blog-meta {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 25px;
+      }
+      .blog-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .blog-hero-img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .blog-page h2 {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(22px, 3vw, 28px);
+        color: var(--green-800);
+        margin: 35px 0 15px;
+      }
+      .blog-page p {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 18px;
+      }
+      .blog-page ul {
+        list-style: disc;
+        padding-left: 25px;
+        margin-bottom: 20px;
+      }
+      .blog-page ul li {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 8px;
+      }
+      .blog-inline-img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin: 25px 0;
+      }
+      .blog-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .blog-tags span {
+        background: #eef6ee;
+        color: #218326;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+      @media (max-width: 1020px) {
+        .menu-toggle {
+          display: grid;
+          place-items: center;
+          width: 43px;
+          height: 43px;
+          border-radius: 50%;
+          border: 1px solid rgba(23, 77, 25, 0.2);
+          background: rgba(255, 255, 255, 0.82);
+          font-size: 20px;
+          cursor: pointer;
+        }
+        .header-actions {
+          display: none;
+        }
+        .main-nav {
+          position: fixed;
+          z-index: 9999;
+          top: 0;
+          right: 0;
+          width: min(380px, 85vw);
+          height: 100vh;
+          flex-direction: column;
+          align-items: stretch;
+          justify-content: flex-start;
+          gap: 10px;
+          padding: 25px 22px;
+          overflow-y: auto;
+          background: rgba(250, 252, 244, 0.99);
+          box-shadow: -18px 0 45px rgba(17, 48, 18, 0.18);
+          backdrop-filter: blur(18px);
+          transform: translateX(110%);
+          visibility: hidden;
+          pointer-events: none;
+          transition:
+            transform 0.35s ease,
+            visibility 0.35s ease;
+        }
+        .menu-checkbox:checked ~ .main-nav {
+          transform: translateX(0);
+          visibility: visible;
+          pointer-events: auto;
+        }
+        .mobile-nav-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(29, 92, 30, 0.18);
+          margin-bottom: 20px;
+        }
+        .mobile-nav-header strong {
+          font-family: "Manrope", sans-serif;
+          font-size: 25px;
+          font-weight: 800;
+          color: var(--green-950);
+        }
+        .mobile-nav-header strong span {
+          color: var(--green-700);
+        }
+        .close-menu {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: var(--green-800);
+          color: white;
+          font-size: 21px;
+          cursor: pointer;
+        }
+        .nav-link,
+        .nav-link.active {
+          display: flex;
+          width: 100%;
+          min-height: 52px;
+          justify-content: space-between;
+          padding: 0 17px;
+          border-radius: 12px;
+          font-size: 15px;
+        }
+        .nav-link.active {
+          justify-content: flex-start;
+          color: white;
+        }
+        .nav-item.dropdown {
+          width: 100%;
+        }
+        .dropdown-menu {
+          position: static;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          box-shadow: none;
+          border: none;
+          background: #f9fdf9;
+          display: none;
+          width: 100%;
+          border-radius: 8px;
+          margin-top: 5px;
+          padding: 5px 0;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+          display: block;
+        }
+        .dropdown-menu li a {
+          padding: 12px 20px 12px 35px;
+        }
+        .mobile-header-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(29, 92, 30, 0.18);
+        }
+        .mobile-header-actions .icon-button {
+          display: flex;
+          width: 100%;
+          height: 50px;
+          justify-content: flex-start;
+          gap: 15px;
+          padding: 0 17px;
+          border: 1px solid rgba(29, 92, 30, 0.15);
+          border-radius: 12px;
+          background: white;
+          font-size: 18px;
+        }
+        .mobile-header-actions .icon-button span {
+          font-size: 15px;
+          font-weight: 600;
+        }
+        .site-header {
+          width: 92%;
+          min-height: 94px;
+        }
+      }
+      @media (max-width: 600px) {
+        .site-header {
+          width: calc(100% - 30px);
+          min-height: 78px;
+        }
+        .brand-mark {
+          width: 43px;
+          height: 48px;
+        }
+        .brand-mark .fa-house-chimney {
+          font-size: 37px;
+        }
+        .brand-mark .fa-seedling {
+          font-size: 25px;
+        }
+        .brand-copy strong {
+          font-size: 21px;
+        }
+        .brand-copy small {
+          font-size: 9px;
+        }
+        .menu-toggle {
+          width: 38px;
+          height: 38px;
+          font-size: 17px;
+        }
+        .blog-page {
+          padding: 40px 15px 60px;
+        }
+        .blog-page p {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark"
+          ><i class="fa-solid fa-house-chimney"></i
+          ><i class="fa-solid fa-seedling"></i></span
+        ><span class="brand-copy"
+          ><strong>Green<span>Nest</span></strong
+          ><small>Grow Happy. Live Green.</small></span
+        ></a
+      >
+      <input class="menu-checkbox" type="checkbox" id="menu-toggle" />
+      <label class="menu-toggle" for="menu-toggle"
+        ><i class="fa-solid fa-bars"></i
+      ></label>
+      <nav class="main-nav">
+        <div class="mobile-nav-header">
+          <strong>Green<span>Nest</span></strong
+          ><label for="menu-toggle" class="close-menu"
+            ><i class="fa-solid fa-xmark"></i
+          ></label>
+        </div>
+        <a class="nav-link" href="../index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#"
+            >Gardening Tips <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="../Categories/BeginerGuide.html">Beginner's Guide</a></li>
+            <li><a href="../Categories/WateringSchedule.html">Watering Schedule</a></li>
+            <li><a href="../Categories/SoilPreparation.html">Soil Preparation</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#"
+            >Tools &amp; Equipment <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="../Categories/HandTrowels.html">Hand Trowels</a></li>
+            <li><a href="../Categories/PruningShears.html">Pruning Shears</a></li>
+            <li><a href="../Categories/WateringCans.html">Watering Cans</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#"
+            >Plant Care <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="../Categories/IndoorPlants.html">Indoor Plants</a></li>
+            <li><a href="../Categories/Fertilizers.html">Fertilizers</a></li>
+            <li><a href="../Categories/PestControl.html">Pest Control</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link active" href="#"
+            >Accessories <i class="fa-solid fa-chevron-down"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="../Categories/PotsPlanters.html">Pots & Planters</a></li>
+            <li><a href="../Categories/Gloves.html">Gloves</a></li>
+            <li><a href="../Categories/DecorativePebbles.html">Decorative Pebbles</a></li>
+          </ul>
+        </div>
+        <div class="mobile-header-actions">
+          <button class="icon-button">
+            <i class="fa-solid fa-magnifying-glass"></i
+            ><span>Search</span></button
+          ><button class="icon-button">
+            <i class="fa-regular fa-user"></i><span>My Profile</span>
+          </button>
+        </div>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button">
+          <i class="fa-solid fa-magnifying-glass"></i></button
+        ><span class="action-divider"></span
+        ><button class="icon-button"><i class="fa-regular fa-user"></i></button>
+      </div>
+    </header>
+
+    <article class="blog-page">
+      <a href="../index.html" class="back-btn"
+        ><i class="fa-solid fa-arrow-left"></i> Back to Home</a
+      >
+      <h1>Decorative Pebbles: Transform Your Garden with Elegance</h1>
+      <div class="blog-meta">
+        <span><i class="fa-regular fa-calendar"></i> April 10, 2025</span>
+        <span><i class="fa-regular fa-user"></i> GreenNest Team</span>
+        <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=900&q=85"
+        alt="Decorative white pebbles in a garden"
+        class="blog-hero-img"
+      />
+
+      <p>
+        Decorative pebbles do more than improve the appearance of a garden.
+        They can also serve practical purposes when used correctly. Whether
+        you have a large outdoor garden or a small balcony garden, the right
+        pebbles can give your space a neat, elegant, and well-designed look.
+        In this guide, we will explore different types of decorative pebbles,
+        their benefits, and practical ways to use them in your garden.
+      </p>
+
+      <h2>1. What Are Decorative Pebbles?</h2>
+      <p>
+        Decorative pebbles are small, smooth, or textured stones used to
+        enhance gardens, planters, pathways, and outdoor spaces. They are
+        available in many forms, including natural river stones, polished
+        marble pebbles, colored stones, and decorative glass pebbles.
+        You can use them around plants, across garden beds, along pathways,
+        or near water features. When applied as a surface covering, pebbles
+        can help reduce direct soil evaporation and improve the appearance
+        of garden spaces. However, they do not replace proper watering,
+        soil care, or drainage.
+      </p>
+
+      <img
+        src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=900&q=85"
+        alt="Colorful decorative pebbles"
+        class="blog-inline-img"
+      />
+
+      <h2>2. Types of Decorative Pebbles</h2>
+      <ul>
+        <li>
+          <strong>White Marble Pebbles:</strong> These provide a bright and
+          elegant appearance. They are commonly used in pots, planters, and
+          decorative garden beds. Their light color creates a clean and
+          attractive contrast with green plants.
+        </li>
+        <li>
+          <strong>River Pebbles:</strong> These naturally smooth stones have
+          a simple and natural appearance. They are suitable for pathways,
+          garden borders, and landscaping projects.
+        </li>
+        <li>
+          <strong>Colored Pebbles:</strong> Available in colors such as red,
+          black, yellow, and green, these pebbles are useful for creating
+          contrast and adding a vibrant touch to modern garden designs.
+        </li>
+        <li>
+          <strong>Lava Rock Pebbles:</strong> These lightweight, porous stones
+          have a distinctive texture and are often used for decorative
+          landscaping and surface covering.
+        </li>
+        <li>
+          <strong>Glass Pebbles:</strong> These shiny decorative pieces are
+          available in different colors and shapes. They are ideal for indoor
+          planters, table decorations, and other creative arrangements.
+        </li>
+      </ul>
+
+      <h2>3. Benefits of Decorative Pebbles</h2>
+      <p>
+        Decorative pebbles are not just attractive additions to a garden.
+        They can also provide several practical benefits when selected and
+        placed properly:
+      </p>
+      <ul>
+        <li>
+          <strong>Reduced Soil Evaporation:</strong> A suitable layer of
+          pebbles can reduce direct sunlight exposure on the soil surface
+          and help slow down moisture loss.
+        </li>
+        <li>
+          <strong>Weed Management:</strong> A sufficiently thick and properly
+          installed pebble covering can make it harder for some weeds to
+          grow. However, it does not completely prevent weed growth.
+        </li>
+        <li>
+          <strong>Protection from Soil Splash:</strong> Pebbles can reduce
+          soil splashing onto plant leaves during watering or rainfall,
+          helping keep plants and nearby surfaces cleaner.
+        </li>
+        <li>
+          <strong>Aesthetic Appeal:</strong> Different colors, shapes, and
+          textures give garden beds and planters a neat and finished
+          appearance.
+        </li>
+        <li>
+          <strong>Surface Protection:</strong> When used in suitable areas,
+          pebbles can help protect exposed soil from being displaced by
+          light rainfall.
+        </li>
+      </ul>
+
+      <img
+        src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=85"
+        alt="Garden pathway with pebbles"
+        class="blog-inline-img"
+      />
+
+      <h2>4. How to Use Pebbles in Your Garden</h2>
+      <p>
+        Proper placement is important when using decorative pebbles.
+        Follow these practical ideas to improve your garden without
+        creating problems for your plants:
+      </p>
+      <ul>
+        <li>
+          <strong>On Top of Plant Pots:</strong> Add a thin layer of small
+          pebbles over the soil for a clean decorative finish. Keep the
+          plant stem uncovered and avoid creating a thick layer that
+          interferes with watering.
+        </li>
+        <li>
+          <strong>In Garden Beds:</strong> Spread pebbles around plants,
+          leaving enough space around their stems and crowns. This helps
+          prevent excess moisture from collecting directly against
+          sensitive plant parts.
+        </li>
+        <li>
+          <strong>Along Pathways:</strong> Use suitable gravel or small
+          stones to create attractive garden paths. Prepare a stable,
+          well-drained base before adding the stones.
+        </li>
+        <li>
+          <strong>Around Water Features:</strong> Arrange smooth river
+          pebbles around ponds and fountains to create a natural-looking
+          border. Make sure the stones are suitable for use near water.
+        </li>
+        <li>
+          <strong>In Indoor Planters:</strong> Use a small amount of
+          decorative glass or natural pebbles to improve the appearance
+          of indoor plant arrangements. Do not block drainage holes.
+        </li>
+      </ul>
+
+      <h2>5. Things to Consider When Choosing Pebbles</h2>
+      <p>
+        Choosing the right decorative pebbles is important for both the
+        appearance of your garden and the well-being of your plants.
+        Consider the following factors before making a purchase:
+      </p>
+      <ul>
+        <li>
+          <strong>Size:</strong> Choose smaller pebbles for compact pots
+          and larger stones for garden borders or spacious outdoor areas.
+          Make sure the size is suitable for the intended use.
+        </li>
+        <li>
+          <strong>Color Scheme:</strong> Select colors that match your
+          garden design. Neutral shades such as white, grey, and beige
+          are versatile choices that complement most plants.
+        </li>
+        <li>
+          <strong>Material and Quality:</strong> Natural stones are
+          generally durable and suitable for outdoor use. If you choose
+          colored pebbles, check that their coating is designed for
+          outdoor conditions and will not easily fade.
+        </li>
+        <li>
+          <strong>Drainage:</strong> Make sure water can move through
+          the soil properly. Pebbles placed on top of soil do not fix
+          poor drainage, and plant pots must have working drainage holes.
+        </li>
+        <li>
+          <strong>Plant Requirements:</strong> Consider the needs of
+          your plants before covering their soil. Some plants prefer
+          exposed soil or specific growing conditions.
+        </li>
+      </ul>
+
+      <h2>6. Maintenance and Care</h2>
+      <p>
+        Decorative pebbles are generally easy to maintain, but dust,
+        fallen leaves, and other organic materials can collect on
+        their surface over time. Rinse them with clean water or use
+        a soft brush to remove dirt. If algae or moss develops, clean
+        the stones carefully with water and avoid using harsh chemicals
+        near plants. Check the pebble layer occasionally and remove
+        unwanted debris to keep your garden looking fresh and tidy.
+      </p>
+
+      <img
+        src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=85"
+        alt="Beautiful garden with decorative stones"
+        class="blog-inline-img"
+      />
+
+      <h2>7. Common Mistakes to Avoid</h2>
+      <p>
+        Although decorative pebbles are easy to use, a few common mistakes
+        can affect plant health and garden maintenance. Avoid the following:
+      </p>
+      <ul>
+        <li>
+          Do not place pebbles directly against plant stems or crowns,
+          as constant moisture around these areas may encourage rot.
+        </li>
+        <li>
+          Avoid using an excessively thick layer of pebbles, especially
+          around plants that need good air exchange and regular soil checks.
+        </li>
+        <li>
+          Choose good-quality colored pebbles because low-quality coatings
+          may fade or deteriorate under sunlight and outdoor conditions.
+        </li>
+        <li>
+          Do not cover drainage holes with pebbles, as this can interfere
+          with proper water drainage.
+        </li>
+        <li>
+          Avoid using heavy stones in lightweight indoor planters if
+          they make the containers difficult to move or handle.
+        </li>
+      </ul>
+
+      <h2>8. Conclusion</h2>
+      <p>
+        Decorative pebbles are a simple and stylish way to improve the
+        appearance of your garden. They are available in different
+        materials, colors, and sizes, making them suitable for planters,
+        garden beds, pathways, and water features. When chosen carefully
+        and placed correctly, they can help reduce soil splash, limit
+        direct soil exposure, and create an attractive outdoor space.
+        Select pebbles that suit your garden design and your plants'
+        growing requirements to create a beautiful and well-maintained
+        green space.
+      </p>
+
+      <div class="blog-tags">
+        <span>Decorative Pebbles</span>
+        <span>Garden Decor</span>
+        <span>Landscaping</span>
+        <span>Plant Care</span>
+      </div>
+    </article>
+  </body>
+</html>
